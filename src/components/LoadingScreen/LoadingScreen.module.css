@@ -1,6 +1,35 @@
 .animateSvg {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 20px;
   display: inline-block;
+}
+
+.rotatePos {
+  transform-origin: center;
+  animation: rotatePos 2s infinite;
+  animation-fill-mode: both;
+}
+
+.rotateNeg {
+  transform-origin: center;
+  animation: rotateNeg 2s infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes rotatePos {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateNeg {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }

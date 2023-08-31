@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { VscListSelection } from "react-icons/vsc";
 import SubDrop, { subComponentTemplate } from "./SubDrop";
 import { Link } from "react-router-dom";
+import useScrollPause from "../../../hooks/useScrollPause";
 
 const SecondryNav = ({ isVisible }: { isVisible: boolean }) => {
   const [showNav, setShowNav] = useState(false);
@@ -11,6 +12,11 @@ const SecondryNav = ({ isVisible }: { isVisible: boolean }) => {
     { link: "#", text: "Trending" },
     { link: "#", text: "Blogs" },
   ];
+
+  const { disableScroll, enableScroll, isScrollEnable } = useScrollPause();
+  useEffect(() => {
+    enableScroll();
+  }, []);
 
   const liStyles =
     "p-1  text-xl transition-all duration-300 hover:!text-lightSecondry-400 dark:text-darkPrimaryText-400";
@@ -21,7 +27,11 @@ const SecondryNav = ({ isVisible }: { isVisible: boolean }) => {
           "flex items-center justify-center navToggler fixed top-5 right-4 z-50 w-14 h-14  transition-all duration-500 ease-in-out dark:text-darkSecondry-400 text-lightPrimaryText-400 rounded-full drop-shadow-md bg-lightPrimary-400 dark:bg-darkPrimary-400 " +
           (!isVisible ? "-translate-y-28" : "translate-y-0")
         }
-        onClick={() => setShowNav((prev) => !prev)}
+        onClick={() => {
+          if (isScrollEnable) disableScroll();
+          else enableScroll();
+          setShowNav((prev) => !prev);
+        }}
       >
         {showNav ? (
           <RxCross1 size={"20px"} />
@@ -44,13 +54,7 @@ const SecondryNav = ({ isVisible }: { isVisible: boolean }) => {
             <a href="#">Services</a>
           </li>
           <li className={liStyles}>
-            <a href="#">
-              <SubDrop
-                mainTitle="Updates"
-                subItems={updateSubItems}
-                styles=""
-              />
-            </a>
+            <SubDrop mainTitle="Updates" subItems={updateSubItems} styles="" />
           </li>
           <li className={liStyles}>
             <Link to="things-happening">Things Happening</Link>

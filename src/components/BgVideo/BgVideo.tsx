@@ -7,12 +7,15 @@ const BgVideo = ({ link, setIsLoadingToFalse }: Props) => {
   return (
     <div className="videoContainer absolute top-0 left-0 w-full h-full bg-opacity-0 -z-10">
       <video
+        onLoad={() => {}}
         onLoadedData={(event) => {
+          console.log("item loaded");
           if (event.currentTarget.readyState >= 3) {
             setIsLoadingToFalse();
           }
         }}
         className="object-cover absolute top-0 left-0 w-full h-full"
+        preload="auto"
         autoPlay={true}
         muted={true}
         loop={true}
