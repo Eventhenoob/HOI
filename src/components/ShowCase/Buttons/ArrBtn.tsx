@@ -10,7 +10,7 @@ const ArrBtn = ({ direction, onClick }: Props) => {
   return (
     <button
       onClick={onClick}
-      className="w-10 h-10 inline-flex justify-center rounded-full items-center bg-darkPrimary-400 dark:bg-lightPrimary-400"
+      className="w-10 h-10 inline-flex justify-center rounded-full items-center bg-lightPrimary-400 "
     >
       {direction.toLowerCase() === "right" && (
         <BsArrowRightShort size={"25px"}></BsArrowRightShort>

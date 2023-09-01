@@ -1,24 +1,22 @@
 import MainNav from "../components/Navigations/MainNav";
 
-import BgVideo from "../components/BgVideo";
 import ChangableHeadings from "../components/ChangableHeadings";
 import SecondryNav from "../components/Navigations/SecondryNavigation/SecondryNav";
 import { useEffect, useRef, useState } from "react";
 import DarkModeToggler from "../components/DarkModeToggler";
 import { useTheme } from "../hooks/useTheme";
-import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
+import MulticolorBG from "../components/AnimatedBackground/MulticolorBG";
+import AnimatedGears from "../components/AnimatedGears/AnimatedGears";
 
 const HomePage = () => {
   const headings = [
     "HOI is Building the Future",
-    "We make algorithms more transparent so we can create new uses for data 1",
-    "We make algorithms more transparent so we can create new uses for data 2",
-    "We make algorithms more transparent so we can create new uses for data 3",
+    "HOI is Building the Future",
+    "HOI is Building the Future",
   ];
 
   const [isMobile, setIsMobile] = useState(false);
   const [isNavActive, setNavActive] = useState(false);
-  const [isVideoLoading, setVideoLoading] = useState(true);
   const headerRef = useRef<HTMLElement>(null);
   const { setThemeTODark, setThemeTOLight, theme } = useTheme();
 
@@ -39,11 +37,10 @@ const HomePage = () => {
     }
   }, []);
   return (
-    <div>
-      <LoadingScreen showLoadingScreen={isVideoLoading} />
+    <>
       <header
         ref={headerRef}
-        className="overflow-hidden relative flex text-center items-center justify-center w-screen h-screen bg-opacity-0 p-5"
+        className="overflow-hidden relative flex text-center items-center justify-center w-full h-screen bg-opacity-0 p-5"
       >
         {!isMobile && (
           <MainNav
@@ -52,7 +49,7 @@ const HomePage = () => {
             theme={theme}
           />
         )}
-        {isNavActive && (
+        {(isNavActive || isMobile) && (
           <>
             <a href="/" className="w-fit fixed z-50 top-0 left-0">
               <img src="\logo-Trans.png" className="w-20" alt="HOI logo" />
@@ -70,13 +67,11 @@ const HomePage = () => {
         <div className="headingContainer  w-11/12 lg:w-8/12 relative z-10">
           <ChangableHeadings headings={headings} type="h2" />
         </div>
-        <BgVideo
-          setIsLoadingToFalse={() => setVideoLoading(false)}
-          link="\hero-video-full.mp4"
-        />
+        <AnimatedGears />
+        <MulticolorBG />
       </header>
 
-      <div className="w-screen overflow-hidden bg-lightPrimary-400 dark:bg-darkPrimary-400 dark:text-darkPrimaryText-400">
+      <div className="w-full overflow-hidden bg-lightPrimary-400 dark:bg-darkPrimary-400 dark:text-darkPrimaryText-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores rem
         vero officiis dolor consequuntur maxime. Rem laboriosam tenetur,
         provident nulla, dolorum quibusdam ad quidem debitis animi deserunt
@@ -273,7 +268,7 @@ const HomePage = () => {
         necessitatibus porro animi consectetur voluptatem tempore eaque
         voluptate hic fugiat impedit, beatae quam! Eligendi, odio beatae.
       </div>
-    </div>
+    </>
   );
 };
 
