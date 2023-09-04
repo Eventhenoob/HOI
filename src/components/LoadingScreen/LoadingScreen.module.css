@@ -5,6 +5,11 @@
   display: inline-block;
 }
 
+.animateText {
+  animation: scaleAndOpacity 1.5s infinite;
+  animation-fill-mode: both;
+}
+
 .rotatePos {
   transform-origin: center;
   animation: rotatePos 2s infinite;
@@ -17,18 +22,64 @@
   animation-fill-mode: both;
 }
 
+@keyframes scaleAndOpacity {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes rotatePos {
   0% {
+    opacity: 0.6;
     transform: rotate(0);
   }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 @keyframes rotateNeg {
   0% {
+    opacity: 0.6;
     transform: rotate(0);
   }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
   100% {
     transform: rotate(-360deg);
   }

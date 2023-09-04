@@ -1,37 +1,27 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
   theme: {
-    colors: {
-      lightPrimary: {
-        400: "#EEEEEE",
-        200: "#bdc3c7",
+    extend: {
+      fontFamily: {
+        serif: ["Roboto Slab", ...defaultTheme.fontFamily.serif],
+        sans: ["poppins", ...defaultTheme.fontFamily.sans],
       },
 
-      lightPrimaryText: {
-        400: " #222831",
-      },
+      colors: {
+        bg: {
+          400: "#0D1321",
+        },
 
-      darkPrimary: {
-        400: "#222831",
-      },
-      darkPrimaryText: {
-        400: "#EEEEEE",
-      },
+        main: {
+          400: "#28B67E",
+        },
 
-      lightSecondry: {
-        400: "#EA1179",
+        white: {
+          400: "#ECE9E9",
+        },
       },
-
-      darkSecondry: {
-        400: "#EA1179",
-      },
-    },
-
-    extend: {},
-    fontFamily: {
-      headings: ["poppins", "roboto", "sans-serif"],
     },
   },
   plugins: [],

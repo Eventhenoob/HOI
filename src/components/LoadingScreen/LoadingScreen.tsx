@@ -8,7 +8,7 @@ const LoadingScreen = ({ showLoadingScreen }: Props) => {
   return (
     <div
       className={
-        "flex fixed top-0 left-0 justify-center items-center bg-darkPrimary-400 z-50 w-screen h-screen transition-all duration-500 visible " +
+        "flex flex-col fixed top-0 left-0 justify-center items-center bg-bg-400 z-50 w-screen h-screen transition-all duration-500 visible " +
         style["loadingBackground"] +
         " " +
         (showLoadingScreen ? " translate-y-0 " : " translate-y-full ")
@@ -30,7 +30,7 @@ const LoadingScreen = ({ showLoadingScreen }: Props) => {
           fill="#fff"
           d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
   c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z"
-          className={style["rotatePos"]}
+          className={style["rotateNeg"]}
         >
           {/* <animateTransform
             attributeName="transform"
@@ -75,6 +75,14 @@ const LoadingScreen = ({ showLoadingScreen }: Props) => {
           /> */}
         </path>
       </svg>
+
+      <p
+        className={
+          " text-white-400 text-2xl font-light " + style["animateText"]
+        }
+      >
+        Loading...
+      </p>
     </div>
   );
 };
