@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "./ChangableHeading.module.css";
 
-type headingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+export type headingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 interface Props {
   type: headingType;
@@ -70,7 +70,7 @@ const ChangableHeadings = ({ type, headings }: Props) => {
             type,
             text: heading,
             classes:
-              "lg:text-5xl md:text-4xl text-3xl font-semibold text-center font-headings text-darkPrimaryText-400  !leading-snug ",
+              "lg:text-7xl md:text-4xl text-3xl font-semibold font-serif text-center font-headings text-white-400  !leading-snug ",
           })}
         </div>
       ))}

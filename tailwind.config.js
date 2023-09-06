@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Roboto Slab", ...defaultTheme.fontFamily.serif],
+        serif: ["RobotoSlab "],
         sans: ["poppins", ...defaultTheme.fontFamily.sans],
       },
 
@@ -15,7 +15,7 @@ export default {
         },
 
         main: {
-          400: "#28B67E",
+          400: "#c72c41",
         },
 
         white: {
