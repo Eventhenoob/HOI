@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import VideoBG from "../components/VideoBG";
 import ChangableHeadings from "../components/ChangableHeadings";
@@ -22,9 +22,22 @@ const HomePage = () => {
   const [isVideoLoading, setVideoLoading] = useState(true);
   const [isNavigationActive, setNavigationActive] = useState(false);
   const [isMobileNav, setMobileNav] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     screen.width < 900 && setMobileNav(true);
+  }, []);
+
+  useEffect(() => {
+    if (headerRef.current && !isMobileNav) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          !entry.isIntersecting && setNavigationActive(true);
+          entry.isIntersecting && setNavigationActive(false);
+        });
+      }, {});
+      observer.observe(headerRef.current);
+    }
   }, []);
 
   return (
@@ -36,7 +49,10 @@ const HomePage = () => {
         <FullNav isNavigationActive={isNavigationActive} />
       )}
 
-      <header className="relative flex justify-center items-center header flex-col w-full h-screen">
+      <header
+        ref={headerRef}
+        className="relative flex justify-center items-center header flex-col w-full h-screen"
+      >
         <div className="relative w-full">
           <ChangableHeadings
             headings={ChangableHeadingsData.headings}
