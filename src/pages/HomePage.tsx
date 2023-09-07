@@ -12,9 +12,12 @@ const ChangableHeadingsData: {
 } = {
   headingType: "h1",
   headings: [
-    "Hoi is building the future",
-    "Hoi is building the future",
-    "Hoi is building the future",
+    "HOI: Where Code Wizards and Hardware Geeks Unite (No Spellbooks Required)!",
+    "Turning 'Bits' into 'Fits of Excitement' - That's How We Roll at HOI",
+    "From 'What If' to 'What Wow' – HOI, Your Go-To Hardware and Code Gurus!",
+    "At HOI, We Code Like Shakespeare Wrote Sonnets – Beautifully and with Style!",
+    "Unleash Your Inner Geek and 'Board' the Innovation Train with Us!",
+    "HOI: Where Hardware Gets a Dose of 'Code-caine' to Perform Miracles!",
   ],
 };
 
@@ -53,15 +56,19 @@ const HomePage = () => {
         ref={headerRef}
         className="relative flex justify-center items-center header flex-col w-full h-screen"
       >
-        <div className="relative w-full">
-          <ChangableHeadings
-            headings={ChangableHeadingsData.headings}
-            type={ChangableHeadingsData.headingType}
-          />
+        <div className="flex justify-center w-full">
+          <div className="relative flex justify-center items-center w-full">
+            <ChangableHeadings
+              headings={ChangableHeadingsData.headings}
+              type={ChangableHeadingsData.headingType}
+            />
+          </div>
         </div>
         <VideoBG isDarkBg={true} onLoadedData={() => setVideoLoading(false)} />
       </header>
-      <main></main>
+      <main>
+        <section className=""></section>
+      </main>
       <footer></footer>
     </>
   );

@@ -56,7 +56,7 @@ const DropItem = ({
               key={internalItem.item}
               className="  text-main-400 hover:text-white-400 hover:!bg-main-400 text-center bg-bg-400  p-5 pt-2 pb-2"
             >
-              <a href={internalItem.link} className=" block text-sm ">
+              <a href={internalItem.link} className=" block text-base ">
                 {internalItem.item}
               </a>
             </li>

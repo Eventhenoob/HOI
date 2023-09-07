@@ -17,7 +17,7 @@ const DropList = ({ icon, mainText, items }: Props) => {
   return (
     <li className="dropListItem">
       <button
-        className="cursor-pointer items-center active:bg-opacity-50 active:bg-slate-200 p-3 text-white-400 flex w-full h-full hover:bg-slate-700"
+        className="cursor-pointer items-center text-xl active:bg-opacity-50 active:bg-slate-200 p-3 text-white-400 flex w-full h-full hover:bg-slate-700"
         onClick={() => setActive((prev) => !prev)}
       >
         {icon}
@@ -34,7 +34,7 @@ const DropList = ({ icon, mainText, items }: Props) => {
           <li key={item.text} className=" w-full ">
             <a
               href={item.link}
-              className="pl-6 w-full flex items-center hover:text-main-400 active:text-main-400 p-2 transition-all duration-300 active:bg-slate-800 hover:bg-slate-400"
+              className="pl-6 w-full flex items-center text-xl hover:text-main-400 active:text-main-400 p-2 transition-all duration-300 active:bg-slate-800 hover:bg-slate-400"
             >
               {item.icon}
               <span className="ml-4 block ">{item.text}</span>

@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["RobotoSlab "],
+        heading: ["Poiret One "],
         sans: ["poppins", ...defaultTheme.fontFamily.sans],
       },
 

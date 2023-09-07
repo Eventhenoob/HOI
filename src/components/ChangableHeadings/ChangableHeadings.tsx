@@ -49,10 +49,10 @@ const ChangableHeadings = ({ type, headings }: Props) => {
       setSelectedItem((previousItem) => {
         return previousItem === headings.length - 1 ? 0 : previousItem + 1;
       });
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(interval);
-  }, [headings.length]);
+  }, []);
 
   let count = 0;
   return (
@@ -61,7 +61,7 @@ const ChangableHeadings = ({ type, headings }: Props) => {
         <div
           className={
             style["headingContainer"] +
-            " absolute -top-8 left-0 flex items-center  justify-center w-full " +
+            " absolute -top-8 left-0 flex items-center w-full  justify-center " +
             (selectedItem === index ? style["active"] : " ")
           }
           key={count++}
@@ -70,7 +70,7 @@ const ChangableHeadings = ({ type, headings }: Props) => {
             type,
             text: heading,
             classes:
-              "lg:text-7xl md:text-4xl text-3xl font-semibold font-serif text-center font-headings text-white-400  !leading-snug ",
+              "lg:text-5xl md:text-4xl text-4xl  font-sans text-center font-heading text-white-400 w-3/4  !leading-snug ",
           })}
         </div>
       ))}
