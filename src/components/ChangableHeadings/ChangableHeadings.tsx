@@ -70,7 +70,7 @@ const ChangableHeadings = ({ type, headings }: Props) => {
             type,
             text: heading,
             classes:
-              "lg:text-5xl md:text-4xl text-4xl  font-sans text-center font-heading text-white-400 w-3/4  !leading-snug ",
+              "lg:text-5xl md:text-4xl text-4xl  text-center font-heading text-white-400 w-3/4  !leading-snug ",
           })}
         </div>
       ))}

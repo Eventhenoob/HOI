@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import NavigationDropList from "./NavigationDropList/NavigationDropList";
 
-interface Props {
-  isNavigationActive: boolean;
-}
-
-const FullNav = ({ isNavigationActive }: Props) => {
+const FullNav = () => {
   const [currentSelected, setCurrentSelected] = useState(-1);
 
   useEffect(() => {
@@ -17,8 +13,8 @@ const FullNav = ({ isNavigationActive }: Props) => {
   return (
     <nav
       className={
-        "flex justify-between lg:pl-10 lg:pr-14 md:pl-5 md:pr-7 items-center top-0 left-0 w-screen h-20 z-10 " +
-        (isNavigationActive ? " bg-slate-800 fixed " : " absolute ")
+        "flex justify-between lg:pl-10 absolute lg:pr-14 md:pl-5 md:pr-7 bg-opacity-75 items-center top-0 left-0 w-screen h-20 z-10 "
+        // + (isNavigationActive ? " bg-slate-900 fixed " : " absolute ")
       }
     >
       <div className="flex justify-center items-center">
