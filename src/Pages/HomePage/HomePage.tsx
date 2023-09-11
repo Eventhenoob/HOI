@@ -9,6 +9,7 @@ import Lottie from "lottie-react";
 
 // Animtaion Jsons
 import menWithTech from "../../assets/manWithTech.json";
+import MoveToElementButton from "../../components/MoveToElementButton/MoveToElementButton";
 
 const ChangableHeadingsData: {
   headingType: headingType;
@@ -28,6 +29,7 @@ const ChangableHeadingsData: {
 const HomePage = () => {
   const [isVideoLoading, setVideoLoading] = useState(true);
   // const [isNavigationActive, setNavigationActive] = useState(false);
+  const [isMovedFromHeader, setMovedFromHeader] = useState(false);
   const [isMobileNav, setMobileNav] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const AboutHoiRef = useRef<HTMLElement>(null);
@@ -36,11 +38,37 @@ const HomePage = () => {
     screen.width < 900 && setMobileNav(true);
   }, []);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (header) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              console.log("here");
+              setMovedFromHeader(true);
+            } else {
+              console.log("here2");
+              setMovedFromHeader(false);
+            }
+          });
+        },
+        {
+          rootMargin: "-50px",
+        }
+      );
+      observer.observe(header);
+    }
+  }, []);
+
   return (
     <>
       <LoadingScreen showLoadingScreen={isVideoLoading} />
       {isMobileNav ? <MobileNav /> : <FullNav />}
-
+      <MoveToElementButton
+        isInView={!isMovedFromHeader}
+        element={headerRef.current}
+      />
       <header
         ref={headerRef}
         className="relative overflow-hidden flex justify-center items-center header flex-col w-full h-screen"
