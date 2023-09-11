@@ -10,6 +10,7 @@ import Lottie from "lottie-react";
 // Animtaion Jsons
 import menWithTech from "../../assets/manWithTech.json";
 import MoveToElementButton from "../../components/MoveToElementButton/MoveToElementButton";
+import useDisplayRes from "../../hooks/useElementToDisplayHeight";
 
 const ChangableHeadingsData: {
   headingType: headingType;
@@ -37,6 +38,12 @@ const HomePage = () => {
   useEffect(() => {
     screen.width < 900 && setMobileNav(true);
   }, []);
+
+  useDisplayRes(headerRef.current);
+
+  if (!isMobileNav) {
+    useDisplayRes(AboutHoiRef.current);
+  }
 
   useEffect(() => {
     const header = headerRef.current;
@@ -71,7 +78,7 @@ const HomePage = () => {
       />
       <header
         ref={headerRef}
-        className="relative overflow-hidden flex justify-center items-center header flex-col w-full h-screen"
+        className="relative overflow-hidden flex justify-center items-center header flex-col w-full "
       >
         <div className="flex justify-center w-full">
           <div className="relative flex justify-center items-center w-full">
@@ -86,7 +93,7 @@ const HomePage = () => {
       <main className="">
         <section
           ref={AboutHoiRef}
-          className="AboutUs flex-col-reverse h-auto pt-20 lg:pt-5 lg:pl-16 lg:pr-16 overflow-hidden lg:h-screen flex lg:flex-row justify-center items-center text-center bg-bg-400 "
+          className="AboutUs flex-col-reverse h-auto pt-20 lg:pt-5 lg:pl-16 lg:pr-16 overflow-hidden  flex lg:flex-row justify-center items-center text-center bg-bg-400 "
         >
           <div className="animation-with-text flex flex-col mb-20 lg:mb-0 lg:w-3/5 justify-center w-full  lg:justify-evenly items-center">
             <h2 className=" uppercase font-serif text-center w-full   mb-12 text-white-400 text-4xl">
