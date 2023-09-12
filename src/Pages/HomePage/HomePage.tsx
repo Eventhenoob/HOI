@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import HologramBg from "../../components/HologramBg/HologramBg";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import VideoBG from "../../components/VideoBG";
 import ChangableHeadings from "../../components/ChangableHeadings";
@@ -42,7 +43,10 @@ const HomePage = () => {
   const JoinRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    screen.width < 900 && setMobileNav(true);
+    if (screen.width < 900) {
+      setVideoLoading(false);
+      setMobileNav(true);
+    }
   }, []);
 
   useDisplayRes(headerRef.current);
@@ -89,7 +93,12 @@ const HomePage = () => {
         ref={headerRef}
         className="relative overflow-hidden flex justify-center items-center header flex-col w-full "
       >
-        <div className="flex justify-center w-full">
+        <div
+          className={
+            " flex justify-center w-full" +
+            (isMobileNav ? " -translate-y-16 " : "")
+          }
+        >
           <div className="relative flex justify-center items-center w-full">
             <ChangableHeadings
               headings={ChangableHeadingsData.headings}
@@ -97,7 +106,15 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <VideoBG isDarkBg={true} onLoadedData={() => setVideoLoading(false)} />
+
+        {isMobileNav ? (
+          <HologramBg />
+        ) : (
+          <VideoBG
+            isDarkBg={true}
+            onLoadedData={() => setVideoLoading(false)}
+          />
+        )}
       </header>
       <main className="">
         <section
