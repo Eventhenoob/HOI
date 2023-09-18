@@ -1,5 +1,6 @@
 import { AiOutlineDown } from "react-icons/ai";
 import { AiOutlineUp } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export interface internalItemProps {
   item: string;
@@ -56,9 +57,9 @@ const DropItem = ({
               key={internalItem.item}
               className="  text-main-400 hover:text-white-400 hover:!bg-main-400 text-center bg-bg-400  p-5 pt-2 pb-2"
             >
-              <a href={internalItem.link} className=" block text-base ">
+              <Link to={internalItem.link} className=" block text-base ">
                 {internalItem.item}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

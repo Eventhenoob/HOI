@@ -1,5 +1,5 @@
 .blinkText {
-  animation: blink 2s infinite;
+  animation: blink 1s infinite ease;
 }
 
 @keyframes blink {

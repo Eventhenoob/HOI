@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NavigationDropList from "./NavigationDropList/NavigationDropList";
+import { Link } from "react-router-dom";
 
 const FullNav = () => {
   const [currentSelected, setCurrentSelected] = useState(-1);
@@ -18,9 +19,9 @@ const FullNav = () => {
       }
     >
       <div className="flex justify-center items-center">
-        <a href="/" className="w-fit">
+        <Link to="/" className="w-fit">
           <img src="\logo-full.png" className="w-24" alt="HOI logo" />
-        </a>
+        </Link>
       </div>
 
       <NavigationDropList

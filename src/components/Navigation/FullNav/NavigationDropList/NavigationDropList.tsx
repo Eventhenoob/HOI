@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import DropItem, { internalItemProps } from "./DropItem";
 
 import style from "./NavigationDropList.module.css";
@@ -10,8 +11,8 @@ const NavigationDropList = ({
   setSelectedIndex: (index: number) => void;
 }) => {
   const internalItemsUpdate: internalItemProps[] = [
-    { item: "Treanding", link: "#" },
-    { item: "Blogs", link: "#" },
+    { item: "Treanding", link: "/treanding" },
+    { item: "Blogs", link: "/blog" },
   ];
 
   const styleClassed =
@@ -19,14 +20,14 @@ const NavigationDropList = ({
   return (
     <ul className="flex justify-between xl:w-2/5 md:w-2/3 ">
       <li className={"navItems "}>
-        <a className={styleClassed + style["styledItems"]} href="contact-us">
+        <Link className={styleClassed + style["styledItems"]} to="/aboutUs">
           About Us
-        </a>
+        </Link>
       </li>
       <li className={"navItems "}>
-        <a className={styleClassed + style["styledItems"]} href="services">
+        <Link className={styleClassed + style["styledItems"]} to="/services">
           Services
-        </a>
+        </Link>
       </li>
 
       <DropItem
@@ -39,9 +40,9 @@ const NavigationDropList = ({
       />
 
       <li className={"navItems "}>
-        <a className={styleClassed + style["styledItems"]} href="services">
+        <Link className={styleClassed + style["styledItems"]} to="/contactUs">
           Contact Us
-        </a>
+        </Link>
       </li>
     </ul>
   );
