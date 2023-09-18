@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { BiSolidDownArrow } from "react-icons/bi";
 
+import style from "./PhotoOnHover.module.css";
+
 interface Props {
   text: string;
   img: string;
@@ -12,7 +14,9 @@ const PhotoOnHoverText = ({ text, img, className }: Props) => {
   return (
     <span
       className={
-        (isHovering ? " overflow-visible " : " overflow-hidden ") +
+        (isHovering
+          ? " overflow-visible "
+          : " overflow-hidden " + style["blinkText"]) +
         " relative  translate-y-0 " +
         className
       }

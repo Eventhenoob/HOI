@@ -285,19 +285,31 @@ const HomePage = () => {
                 <p className="text-slate-400 text-sm">Follow us: </p>
               </li>
               <li className="">
-                <a href="#" className="hover:text-main-400">
+                <a
+                  href="https://www.instagram.com/houseofinnovation_hoi/?hl=en"
+                  target="_blank"
+                  className="hover:text-main-400"
+                >
                   Instagram
                 </a>
               </li>
 
               <li className="">
-                <a href="#" className="hover:text-main-400">
+                <a
+                  href="https://twitter.com/hoi_innovation"
+                  target="_blank"
+                  className="hover:text-main-400"
+                >
                   Twitter
                 </a>
               </li>
 
               <li className="">
-                <a href="#" className="hover:text-main-400">
+                <a
+                  href="https://www.linkedin.com/in/houseofinnovation/"
+                  target="_blank"
+                  className="hover:text-main-400"
+                >
                   Linkedin
                 </a>
               </li>

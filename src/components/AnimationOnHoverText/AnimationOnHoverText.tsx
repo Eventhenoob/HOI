@@ -1,5 +1,7 @@
 import { useRef, useState, ReactNode } from "react";
 
+import style from "./AnimationOnHover.module.css";
+
 interface Props {
   text: string;
   className?: string;
@@ -24,7 +26,12 @@ const AnimationOnHoverText = ({ text, lottieElement, className }: Props) => {
         if (svgRef.current)
           svgRef.current.style.transform = `translate(${deltaX}px, -120%)`;
       }}
-      className={"inline-block relative translate-y-0 " + className}
+      className={
+        "inline-block relative translate-y-0 " +
+        className +
+        " " +
+        (!isHovered ? style["blinkText"] : "")
+      }
     >
       {text}
       {
@@ -32,7 +39,7 @@ const AnimationOnHoverText = ({ text, lottieElement, className }: Props) => {
           ref={svgRef}
           className={
             "absolute z-50 w-44 -translate-y-full left-0 " +
-            (isHovered ? "visible" : "hidden")
+            (isHovered ? "visible " : "hidden")
           }
         >
           {lottieElement}
