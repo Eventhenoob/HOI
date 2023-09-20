@@ -7,11 +7,14 @@ import { MdUpdate } from "react-icons/md";
 import { CgTrending } from "react-icons/cg";
 import { BiLogoBlogger } from "react-icons/bi";
 import { ulItemsTemplate } from "./DropList/DropList";
+
+import { Link } from "react-router-dom";
+
 import DropList from "./DropList";
 
 const updateDropListItems: ulItemsTemplate[] = [
-  { link: "#", text: "Treanding", icon: <CgTrending /> },
-  { link: "#", text: "Blogs", icon: <BiLogoBlogger /> },
+  { link: "/treanding", text: "Treanding", icon: <CgTrending /> },
+  { link: "/blogs", text: "Blogs", icon: <BiLogoBlogger /> },
 ];
 
 const MobileNav = () => {
@@ -33,10 +36,10 @@ const MobileNav = () => {
         >
           <FaBarsStaggered />
         </button>
-        <a href="/" className="">
+        <Link to="/" className="">
           <p className="font-serif text-2xl  text-white-400">HOI</p>
           {/* <img src="./logo-full.png" alt="website logo" className="w-24" /> */}
-        </a>
+        </Link>
       </div>
 
       <ul
@@ -49,23 +52,23 @@ const MobileNav = () => {
         }}
       >
         <li className={"navItems "}>
-          <a
+          <Link
             className="cursor-pointer text-xl active:bg-opacity-50 active:bg-slate-200 text-white-400 items-center flex w-full h-full p-3 hover:bg-slate-700"
-            href="about-us"
+            to="/about-us"
           >
             <AiOutlineTeam />
             <span className="ml-4 block ">About Us</span>
-          </a>
+          </Link>
         </li>
 
         <li className={"navItems "}>
-          <a
+          <Link
             className="cursor-pointer text-xl items-center active:bg-opacity-50 active:bg-slate-200 p-3 text-white-400 flex w-full h-full hover:bg-slate-700"
-            href="services"
+            to="/services"
           >
             <BsGear />
             <span className="ml-4 block ">Services</span>
-          </a>
+          </Link>
         </li>
 
         <DropList
@@ -75,13 +78,13 @@ const MobileNav = () => {
         />
 
         <li className={"navItems "}>
-          <a
+          <Link
             className="cursor-pointer text-xl items-center active:bg-opacity-50 active:bg-slate-200 p-3 text-white-400 flex w-full h-full hover:bg-slate-700"
-            href="contact-us"
+            to="/contact-us"
           >
             <TiContacts />
             <span className="ml-4 block ">Contact Us</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

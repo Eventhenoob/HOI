@@ -11,8 +11,8 @@ const NavigationDropList = ({
   setSelectedIndex: (index: number) => void;
 }) => {
   const internalItemsUpdate: internalItemProps[] = [
-    { item: "Treanding", link: "/treanding" },
-    { item: "Blogs", link: "/blog" },
+    { item: "Blogs", link: "/blogs" },
+    { item: "News", link: "/news" },
   ];
 
   const styleClassed =
@@ -36,7 +36,7 @@ const NavigationDropList = ({
         selectedIndex={selectedIndex}
         internalItems={internalItemsUpdate}
         itemStyles={styleClassed}
-        mainItem="Updates"
+        mainItem="Treanding"
       />
 
       <li className={"navItems "}>

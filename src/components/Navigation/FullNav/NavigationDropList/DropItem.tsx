@@ -55,7 +55,7 @@ const DropItem = ({
           {internalItems.map((internalItem) => (
             <li
               key={internalItem.item}
-              className="  text-main-400 hover:text-white-400 hover:!bg-main-400 text-center bg-bg-400  p-5 pt-2 pb-2"
+              className="  text-main-400 hover:text-white-400 hover:!bg-main-400 text-center bg-bg-400  p-11 pt-2 pb-2"
             >
               <Link to={internalItem.link} className=" block text-base ">
                 {internalItem.item}

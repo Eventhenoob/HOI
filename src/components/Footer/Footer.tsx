@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="bg-black flex p-11 lg:flex-row flex-col items-center justify-between lg:items-start">
-      <a href="/" className="w-fit">
+      <Link to="/" className="w-fit">
         <img src="\logo-full.png" className="w-36" alt="HOI logo" />
-      </a>
+      </Link>
       <div className="nav-container flex flex-col justify-center items-center mt-6 lg:mt-0 lg:items-start">
         <h3 className="text-slate-400 pb-3">Subscribe to our newsletter:</h3>
-        <a
-          href="#"
+        <Link
+          to="/subscribe"
           className="bg-main-400 inline-block text-white-400 hover:bg-red-800 p-3"
         >
           SUBSCRIBE
-        </a>
+        </Link>
 
         <div className="footer-nav flex justify-between">
           <ul className="text-white-400 mt-20 mr-20">
@@ -19,21 +21,21 @@ const Footer = () => {
               <p className="text-slate-400 text-sm">Site Nav: </p>
             </li>
             <li className="">
-              <a href="#" className="hover:text-main-400">
+              <Link to="/contactUs" className="hover:text-main-400">
                 Contact Us
-              </a>
+              </Link>
             </li>
 
             <li className="">
-              <a href="#" className="hover:text-main-400">
+              <Link to="/blogs" className="hover:text-main-400">
                 Blogs
-              </a>
+              </Link>
             </li>
 
             <li className="">
-              <a href="#" className="hover:text-main-400">
+              <Link to="/aboutFounder" className="hover:text-main-400">
                 About Founder
-              </a>
+              </Link>
             </li>
           </ul>
 
