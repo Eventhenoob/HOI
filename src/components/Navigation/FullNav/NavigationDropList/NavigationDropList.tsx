@@ -20,6 +20,11 @@ const NavigationDropList = ({
   return (
     <ul className="flex justify-between xl:w-2/5 md:w-2/3 ">
       <li className={"navItems "}>
+        <Link className={styleClassed + style["styledItems"]} to="/">
+          Home
+        </Link>
+      </li>
+      <li className={"navItems "}>
         <Link className={styleClassed + style["styledItems"]} to="/aboutUs">
           About Us
         </Link>

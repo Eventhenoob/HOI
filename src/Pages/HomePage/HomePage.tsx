@@ -105,6 +105,14 @@ const HomePage = () => {
           />
         )}
       </header>
+
+      <main className="bg-bg-400">
+        <section className="services pt-36 pb-36 flex flex-col justify-center items-center">
+          <h2 className="ml-8 text-white-400 font-heading  self-start text-3xl">
+            How We Can <span className="text-main-400">Help You</span>
+          </h2>
+        </section>
+      </main>
     </>
   );
 };

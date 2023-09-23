@@ -20,7 +20,7 @@ const VideoBG = ({ onLoadedData, isDarkBg }: Props) => {
         muted={true}
         loop={true}
         className={
-          "object-cover w-full h-full " + (isDarkBg ? " opacity-70" : "")
+          "object-cover w-full h-full " + (isDarkBg ? " opacity-50" : "")
         }
       >
         <source src="./backgound-video.mp4" type="video/mp4" />

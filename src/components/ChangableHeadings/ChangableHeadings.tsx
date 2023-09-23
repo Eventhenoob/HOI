@@ -54,7 +54,6 @@ const ChangableHeadings = ({ type, headings }: Props) => {
     return () => clearInterval(interval);
   }, []);
 
-  let count = 0;
   return (
     <>
       {headings.map((heading, index) => (
@@ -64,7 +63,7 @@ const ChangableHeadings = ({ type, headings }: Props) => {
             " absolute -top-8 left-0 flex items-center w-full  justify-center " +
             (selectedItem === index ? style["active"] : " ")
           }
-          key={count++}
+          key={index}
         >
           {generateHeadingsBasedOnType({
             type,
