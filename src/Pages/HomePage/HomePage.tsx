@@ -12,6 +12,7 @@ import useDisplayRes from "../../hooks/useElementToDisplayHeight";
 // Styles
 import style from "./HomePage.module.css";
 import { useMobile } from "../../contexts/MobileContext";
+import InfoCardWithAnimationTray from "../../components/InfoCardWithAnimationTray";
 
 ////////////////////////
 
@@ -107,10 +108,11 @@ const HomePage = () => {
       </header>
 
       <main className="bg-bg-400">
-        <section className="services pt-36 pb-36 flex flex-col justify-center items-center">
-          <h2 className="ml-8 text-white-400 font-heading  self-start text-3xl">
-            How We Can <span className="text-main-400">Help You</span>
+        <section className="services pt-20 pb-20 flex flex-col items-center justify-center ">
+          <h2 className="ml-8 mb-10 text-white-400 font-heading  text-5xl">
+            How We Can <span className="text-main-400">Help</span> You?
           </h2>
+          <InfoCardWithAnimationTray />
         </section>
       </main>
     </>

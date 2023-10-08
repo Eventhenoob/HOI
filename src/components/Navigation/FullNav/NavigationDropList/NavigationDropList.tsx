@@ -16,7 +16,7 @@ const NavigationDropList = ({
   ];
 
   const styleClassed =
-    "text-slate-300 text-md hover:text-slate-100  cursor-pointer ";
+    "text-slate-300 text-md hover:text-white-400  cursor-pointer ";
   return (
     <ul className="flex justify-between xl:w-2/5 md:w-2/3 ">
       <li className={"navItems "}>

@@ -1,0 +1,99 @@
+.container:not(:last-of-type) {
+  margin-right: 4rem;
+}
+
+.container::before {
+  position: absolute;
+  top: 0;
+
+  display: block;
+  content: "";
+  height: 60%;
+  width: 100%;
+  border-radius: 4px 100% 80% 50%;
+  z-index: 20;
+  transform: scale(1) translateY(-20%);
+  transition: transform 0.4s;
+}
+
+.pink::before {
+  background-image: linear-gradient(
+    to right bottom,
+    #3f0071,
+    #6d007c,
+    #980083,
+    #c10087,
+    #e80f88
+  );
+}
+
+.blue::before {
+  background-image: linear-gradient(
+    to right bottom,
+    #116d6e,
+    #007488,
+    #0079a4,
+    #007abd,
+    #4477ce
+  );
+}
+
+.red::before {
+  background-image: linear-gradient(
+    to right bottom,
+    #ff0000,
+    #d7003c,
+    #9c0051,
+    #580051,
+    #16003b
+  );
+}
+
+.darkBlue::before {
+  background-image: linear-gradient(
+    to right bottom,
+    #1b1b2f,
+    #1f233d,
+    #222c4b,
+    #223659,
+    #1f4068
+  );
+}
+
+.purple::before {
+  background-image: linear-gradient(
+    to right bottom,
+    #1b1b2f,
+    #211d46,
+    #2d1d5b,
+    #40176e,
+    #57007e
+  );
+}
+
+.green::before {
+  background-image: linear-gradient(
+    to right bottom,
+    #1b1b2f,
+    #00486e,
+    #007c8a,
+    #00ad6e,
+    #a7d129
+  );
+}
+
+.container:hover::before {
+  transform: scale(2.5);
+}
+
+.scaleLogo {
+  transition: filter 0.5s, transform 0.4s ease;
+  transform: scale(1);
+  filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.container:hover .scaleLogo {
+  filter: grayscale(0);
+  transform: scale(1.2);
+}
