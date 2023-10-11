@@ -13,6 +13,7 @@ import useDisplayRes from "../../hooks/useElementToDisplayHeight";
 import style from "./HomePage.module.css";
 import { useMobile } from "../../contexts/MobileContext";
 import InfoCardWithAnimationTray from "../../components/InfoCardWithAnimationTray";
+import ProgressBar from "../../components/ProgressBar";
 
 ////////////////////////
 
@@ -108,11 +109,20 @@ const HomePage = () => {
       </header>
 
       <main className="bg-bg-400">
-        <section className="services pt-20 pb-20 flex flex-col items-center justify-center ">
+        <section className="services pt-40 pb-20 flex flex-col items-center justify-center ">
           <h2 className="ml-8 mb-10 text-white-400 font-heading  text-5xl">
             How We Can <span className="text-main-400">Help</span> You?
           </h2>
           <InfoCardWithAnimationTray />
+        </section>
+
+        <section className="best-practices bg-bg-400 p-3 pt-40 pb-40">
+          <h2 className="ml-16 mr-16 text-white-400 text-center font-heading  text-5xl">
+            <span className="text-yellow-300 ">Unconventional Excellence</span>:
+            Industry Best Practices Turned Upside Down and Inside Out!
+          </h2>
+
+          <ProgressBar />
         </section>
       </main>
     </>

@@ -13,10 +13,13 @@ import techConsultanceAnimation from "../../assets/tech-consultation-animation.j
 import ArrowFloatingButton from "../ArrowFloatingButton/ArrowFloatingButton";
 import { useRef, useState } from "react";
 import { useMobile } from "../../contexts/MobileContext";
+
 const InfoCardWithAnimationTray = () => {
   const isMobile = useMobile();
   const trayRef = useRef<HTMLDivElement>(null);
-  const [disabled, setDisabled] = useState<"" | "left" | "right">("left");
+  const [disabled, setDisabled] = useState<"" | "left" | "right" | "both">(
+    "left"
+  );
 
   function getTranslateX(element: HTMLDivElement) {
     const style = window.getComputedStyle(element);
@@ -25,45 +28,39 @@ const InfoCardWithAnimationTray = () => {
   }
 
   const moveTray = (direction: "left" | "right") => {
+    setDisabled("both");
     setTimeout(() => {
       if (isMobile) {
         if (trayRef.current != null) {
           if (Math.ceil(getTranslateX(trayRef.current)) >= 0) {
+            console.log("Disabled the left");
             setDisabled("left");
           } else if (
             getTranslateX(trayRef.current) <=
-            -trayRef.current.clientWidth + window.innerWidth + 288 + 64
+            -trayRef.current.clientWidth +
+              // + window.innerWidth
+              (288 + 64) * 2
           ) {
-            console.log(
-              getTranslateX(trayRef.current) <=
-                -trayRef.current.clientWidth + window.innerWidth + 288 + 64
-            );
             setDisabled("right");
-          } else {
-            console.log("else:  " + getTranslateX(trayRef.current));
-            setDisabled("");
-          }
+          } else setDisabled("");
         }
       } else {
         if (trayRef.current != null) {
           if (Math.ceil(getTranslateX(trayRef.current)) >= 0) {
+            console.log("Translate X: " + getTranslateX(trayRef.current));
             setDisabled("left");
           } else if (
             getTranslateX(trayRef.current) <=
             -trayRef.current.clientWidth + window.innerWidth
-          ) {
-            console.log(
-              getTranslateX(trayRef.current) <=
-                -trayRef.current.clientWidth + window.innerWidth
-            );
+          )
             setDisabled("right");
-          } else {
-            console.log("else:  " + getTranslateX(trayRef.current));
+          else {
+            console.log("Translate X: " + getTranslateX(trayRef.current));
             setDisabled("");
           }
         }
       }
-    }, 300);
+    }, 400);
 
     if (direction === "right" && trayRef.current) {
       trayRef.current.style.transform = `translateX(${
@@ -79,14 +76,14 @@ const InfoCardWithAnimationTray = () => {
   return (
     <div className="trayContainer w-full relative overflow-hidden">
       <ArrowFloatingButton
-        isDisabled={disabled == "right"}
+        isDisabled={disabled == "right" || disabled == "both"}
         direction="right"
         onClick={() => {
           if (disabled != "right") moveTray("right");
         }}
       />
       <ArrowFloatingButton
-        isDisabled={disabled == "left"}
+        isDisabled={disabled == "left" || disabled == "both"}
         onClick={() => {
           if (disabled != "left") moveTray("left");
         }}

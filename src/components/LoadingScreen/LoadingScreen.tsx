@@ -8,10 +8,12 @@ const LoadingScreen = ({ showLoadingScreen }: Props) => {
   return (
     <div
       className={
-        "flex flex-col fixed top-0 left-0 justify-center items-center bg-bg-400 z-50 w-screen h-screen transition-all duration-500 visible " +
+        "flex flex-col fixed top-0 left-0 justify-center items-center bg-bg-400 z-50 w-screen h-screen transition-all duration-500  " +
         style["loadingBackground"] +
         " " +
-        (showLoadingScreen ? " translate-y-0 " : " translate-y-full ")
+        (showLoadingScreen
+          ? " translate-y-0 visible "
+          : " translate-y-full invisible ")
       }
     >
       <svg
